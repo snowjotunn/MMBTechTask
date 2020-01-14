@@ -3,6 +3,8 @@ import { TouchableOpacity, Text, StyleSheet, View, ScrollView } from 'react-nati
 
 import Title from '../components/Title';
 
+const services = ['Стрижка', 'Ногти', 'Макияж'];
+
 export default class ThirdScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
@@ -13,69 +15,18 @@ export default class ThirdScreen extends React.Component {
             <Title text="Что вы хотите сделать сегодня" />
           </View>
           <View style={styles.menu}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Стрижка</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Ногти</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Макияж</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Уход за кожей</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Депиляция</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Покраска</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Брови, ресницы</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Массаж</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigate('FourthScreen')}
-            >
-              <View style={styles.buttonImg}></View>
-              <Text style={styles.buttonText}>Другое</Text>
-            </TouchableOpacity>
+            {
+              services.map(service => (
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => navigate('FourthScreen')}
+                  key={service}
+                >
+                  <View style={styles.buttonImg}></View>
+                  <Text style={styles.buttonText}>{service}</Text>
+                </TouchableOpacity>
+            )) }
+           
           </View>
         </ScrollView>
         <View style={styles.footer}>
